@@ -9,6 +9,8 @@ public class Universe : MonoBehaviour {
     //public bool input_SpaceHold = false;
     //public bool input_SpaceRelease = false;
 
+    public float scrollingSpeed = -10;
+
     // Use this for initialization
     void Start () {
         if (immortal)
