@@ -27,6 +27,6 @@ public class Universe : MonoBehaviour {
 
     void CheckPlayerInput()
     {
-        input_SpacePress = (Input.GetKeyDown(KeyCode.Space)) ? true : false;
+        input_SpacePress = (Input.GetKey(KeyCode.Space)) ? true : false;
     }
 }
