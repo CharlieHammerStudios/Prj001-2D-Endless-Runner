@@ -21,9 +21,10 @@ public class Platform : MonoBehaviour {
 	void Update () {
         Move();
 
-        if (transform.position.x < -50)
+        //Once the terrain set scrolls 2 screens behind the player, recycle back into queue in front of player
+        if (transform.position.x < (0 - terrainManagerSS.terrainSpacing * 2))
         {
-            transform.position = new Vector3(terrainManagerSS.terrainSpacing * 7.72f, 0, 0);
+            transform.position = new Vector3(terrainManagerSS.terrainSpacing * 8, 0, 0);
         }
 
 	}

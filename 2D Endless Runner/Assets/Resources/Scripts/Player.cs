@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 
     public float jumpStr = 1500;
     public bool isGrounded = false;
+    public bool isJumping = false;
     public LayerMask groundCheckLayer;
     public float groundCheckRayLength = 0.55f;
     public RaycastHit2D groundCheckRayInfo;
@@ -28,9 +29,11 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate ()
     {
-        if (isGrounded && universeSS.input_SpacePress)
+        if (isGrounded && !isJumping && universeSS.input_SpacePress)
         {
+            isJumping = true;
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpStr));
+            Debug.Log("Jump!");
         }
     }
 
@@ -42,6 +45,7 @@ public class Player : MonoBehaviour {
         if (groundCheckRayInfo.collider != null)
         {
             isGrounded = true;
+            isJumping = false;
         }
         else
         {
