@@ -6,7 +6,7 @@ public class PlatformManager : MonoBehaviour {
     public GameObject[] stageParts;
     public int genParts = 10;
 
-    public float terrainSpacing = 22f;
+    public float terrainSpacing = 21.5f;
     public GameObject[] someNewArray;
 
     public GameObject defaultStart;
@@ -25,15 +25,6 @@ public class PlatformManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    /*
-        foreach (GameObject part in someNewArray) {
-            if (part.transform.position.x < -50) {
-                //part.transform.position.Set(0, 10, 0);
-                part.transform.position = new Vector3(terrainSpacing * 7.72f, 0, 0);
-                //Debug.Log("Gooby");
-            }
-        }
-        */
 
 	}
 }
