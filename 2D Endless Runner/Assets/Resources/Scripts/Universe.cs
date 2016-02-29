@@ -11,6 +11,10 @@ public class Universe : MonoBehaviour {
 
     public float scrollingSpeed = -10;
 
+	void Awake () {
+		Application.targetFrameRate = 60;
+	}
+
     // Use this for initialization
     void Start () {
         if (immortal)
