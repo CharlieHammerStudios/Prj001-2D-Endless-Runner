@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
     public LayerMask groundCheckLayer;
     public float groundCheckRayLength = 0.55f;
     public RaycastHit2D groundCheckRayInfo;
+    public bool isAlive = true;
+    public bool respawning = false;
 
     void Awake ()
     {
@@ -25,6 +27,11 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         CheckForGround();
+        
+        if (!isAlive)
+        {
+            StartCoroutine("Respawn");
+        }
     }
 
     void FixedUpdate ()
@@ -37,6 +44,27 @@ public class Player : MonoBehaviour {
         }
     }
 
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.name == "death cube")
+        {
+            isAlive = false;
+        }
+    }
+
+    IEnumerator Respawn()
+    {
+        if (!respawning)
+        {
+            respawning = true;
+            yield return new WaitForSeconds(5);
+            isAlive = true;
+            transform.position = GameObject.Find("SpawnPoint").transform.position;
+            Debug.Log("has died and stuff");
+            respawning = false;
+        }
+    }
+    
     void CheckForGround()
     {
         groundCheckRayInfo = Physics2D.Raycast(GetComponent<Transform>().position, Vector2.down, groundCheckRayLength, groundCheckLayer);
