@@ -12,14 +12,14 @@ public class Dead : MonoBehaviour {
 	void Update () {
 	
 	}
-    void OnTriggerStay (Collider col)
+    void OnTriggerStay2D (Collider2D col)
     {
 
         if (col.gameObject.tag == "Player")
         {
             Debug.Log("touched");
             col.gameObject.GetComponent<Player>().isAlive = false;
-            col.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y - 50, transform.position.z);
+            col.gameObject.transform.position = new Vector3(0, 0, 0);
         }
     }
 }

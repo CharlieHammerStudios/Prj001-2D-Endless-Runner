@@ -57,7 +57,7 @@ public class Player : MonoBehaviour {
         if (!respawning)
         {
             respawning = true;
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(2);
             isAlive = true;
             transform.position = GameObject.Find("SpawnPoint").transform.position;
             Debug.Log("has died and stuff");
